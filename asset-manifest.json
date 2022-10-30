@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-gh-pages/static/css/main.1a06c776.css",
-    "main.js": "/react-gh-pages/static/js/main.22261980.js",
-    "static/js/787.8812c231.chunk.js": "/react-gh-pages/static/js/787.8812c231.chunk.js",
-    "index.html": "/react-gh-pages/index.html",
-    "main.1a06c776.css.map": "/react-gh-pages/static/css/main.1a06c776.css.map",
-    "main.22261980.js.map": "/react-gh-pages/static/js/main.22261980.js.map",
-    "787.8812c231.chunk.js.map": "/react-gh-pages/static/js/787.8812c231.chunk.js.map"
+    "main.css": "/DartsApp/static/css/main.1a06c776.css",
+    "main.js": "/DartsApp/static/js/main.46cce751.js",
+    "static/js/787.8812c231.chunk.js": "/DartsApp/static/js/787.8812c231.chunk.js",
+    "index.html": "/DartsApp/index.html",
+    "main.1a06c776.css.map": "/DartsApp/static/css/main.1a06c776.css.map",
+    "main.46cce751.js.map": "/DartsApp/static/js/main.46cce751.js.map",
+    "787.8812c231.chunk.js.map": "/DartsApp/static/js/787.8812c231.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1a06c776.css",
-    "static/js/main.22261980.js"
+    "static/js/main.46cce751.js"
   ]
 }
