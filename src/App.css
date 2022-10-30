@@ -35,7 +35,33 @@
   bottom: 0px;
 }
 
-.dot {
+.bull0 {
+  position: relative;
+  margin-left: 34vw;
+  margin-top: 34vw;
+  border: solid 7vw black;
+  padding: 0;
+  width: 10vw; height: 10vw;
+  list-style: none;
+background-color: wheat;
+border-radius: 50%;
+display: inline-block;
+}
+
+.bull25 {
+  position: relative;
+  margin-left: 34vw;
+  margin-top: 34vw;
+  border: solid 7vw black;
+  padding: 0;
+  width: 10vw; height: 10vw;
+  list-style: none;
+background-color: green;
+border-radius: 50%;
+display: inline-block;
+}
+
+.bull50 {
   position: relative;
   margin-left: 34vw;
   margin-top: 34vw;
@@ -48,8 +74,11 @@ border-radius: 50%;
 display: inline-block;
 }
 
-.dot:hover{
-  background-color: #13aa52;
+h3{
+  position: relative;
+  left: 20%;
+  top: -60%;
+  user-select: none;
 }
 
 .slice {
@@ -89,25 +118,22 @@ display: inline-block;
   background: black;
   color: whitesmoke;
 }
-
 .slice-contents-1 {
   position: relative;
   width: 200%; height: 200%;
   background: green;
   color: whitesmoke;
 }
-
 .slice-contents-2 {
   position: relative;
   width: 200%; height: 200%;
-  background: red;
+  background: blue;
   color: whitesmoke;
 }
-
 .slice-contents-3 {
   position: relative;
   width: 200%; height: 200%;
-  background: purple;
+  background: red;
   color: whitesmoke;
 }
 
@@ -117,46 +143,42 @@ display: inline-block;
   color: black;
   background: wheat;
 }
-
 .slice-contents-wheat-1 {
   position: relative;
   width: 200%; height: 200%;
   color: black;
   background: green;
 }
-
 .slice-contents-wheat-2 {
+  position: relative;
+  width: 200%; height: 200%;
+  color: black;
+  background: blue;
+}
+.slice-contents-wheat-3 {
   position: relative;
   width: 200%; height: 200%;
   color: black;
   background: red;
 }
-
-.slice-contents-wheat-3 {
-  position: relative;
-  width: 200%; height: 200%;
-  color: black;
-  background: purple;
-}
-
 p{
+  user-select: none;
   pointer-events: none;
 margin: 0 0 0 0;
 position: relative;
-top: 16vw;
+top: 20vw;
 left: 0vh;
-transform:  skewX(15deg) skewY(-10deg) scaleY(5)  ;
-font-weight: bolder;
+transform:  skewX(15deg) skewY(-10deg) scaleY(4);
+font-size: smaller;
 font-family: 'Trebuchet MS', sans-serif;
 }
-
 button {
   background-color: #13aa52;
   border: 1px solid #13aa52;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
   box-sizing: border-box;
-  color: #282c34;
+  color: black;
   cursor: pointer;
   font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 16px;
