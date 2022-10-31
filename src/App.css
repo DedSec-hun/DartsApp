@@ -35,33 +35,7 @@
   bottom: 0px;
 }
 
-.bull0 {
-  position: relative;
-  margin-left: 34vw;
-  margin-top: 34vw;
-  border: solid 7vw black;
-  padding: 0;
-  width: 10vw; height: 10vw;
-  list-style: none;
-background-color: wheat;
-border-radius: 50%;
-display: inline-block;
-}
-
-.bull25 {
-  position: relative;
-  margin-left: 34vw;
-  margin-top: 34vw;
-  border: solid 7vw black;
-  padding: 0;
-  width: 10vw; height: 10vw;
-  list-style: none;
-background-color: green;
-border-radius: 50%;
-display: inline-block;
-}
-
-.bull50 {
+.bull {
   position: relative;
   margin-left: 34vw;
   margin-top: 34vw;
@@ -73,6 +47,19 @@ background-color: red;
 border-radius: 50%;
 display: inline-block;
 }
+
+
+@-webkit-keyframes fill { 
+  to {
+   background-size: 100% 0; 
+   }
+  } 
+  
+  @keyframes fill { 
+  to { 
+   background-size: 100% 0;
+   }
+  }
 
 h3{
   position: relative;
@@ -112,55 +99,28 @@ h3{
 .slice:nth-child(19) { transform: rotate(333deg) skewY(-70deg); }
 .slice:nth-child(20) { transform: rotate(351deg) skewY(-70deg); border-bottom: solid 2px black;}
 
-.slice-contents-0 {
+.slice-contents {
   position: relative;
   width: 200%; height: 200%;
   background: black;
   color: whitesmoke;
 }
-.slice-contents-1 {
-  position: relative;
-  width: 200%; height: 200%;
-  background: green;
-  color: whitesmoke;
-}
-.slice-contents-2 {
-  position: relative;
-  width: 200%; height: 200%;
-  background: blue;
-  color: whitesmoke;
-}
-.slice-contents-3 {
-  position: relative;
-  width: 200%; height: 200%;
-  background: red;
-  color: whitesmoke;
+
+.slice-contents:hover {
+  background: #13aa52;
 }
 
-.slice-contents-wheat-0 {
+.slice-contents-wheat {
   position: relative;
   width: 200%; height: 200%;
   color: black;
   background: wheat;
 }
-.slice-contents-wheat-1 {
-  position: relative;
-  width: 200%; height: 200%;
-  color: black;
-  background: green;
+
+.slice-contents-wheat:hover {
+  background: #13aa52;
 }
-.slice-contents-wheat-2 {
-  position: relative;
-  width: 200%; height: 200%;
-  color: black;
-  background: blue;
-}
-.slice-contents-wheat-3 {
-  position: relative;
-  width: 200%; height: 200%;
-  color: black;
-  background: red;
-}
+
 p{
   user-select: none;
   pointer-events: none;
@@ -203,5 +163,16 @@ button:hover {
   button {
     padding: 10px 30px;
   }
+}
+
+
+.active {
+
+color: green;
+}
+
+.not-active {
+  color: white;
+
 }
 
