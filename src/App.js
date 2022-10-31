@@ -88,7 +88,6 @@ if (bull == 50) setBull(0);
   }, [counter]);
 
   const elementStyle = {
-
     width: 1 + `${counter}px`,
   };
   
@@ -118,7 +117,9 @@ slices.map(function(item, i){
 <span className={'bull'} onClick={bully}> <h3>{ bull == 0 ?  '' : bull}</h3>  </span>
 </ul>
 
-<button>Score</button>
+<button onMouseDown={startCounter}
+        onMouseUp={stopCounter}
+        onMouseLeave={stopCounter}>Score</button>
 <button onClick={endTurn}> Next</button>
 
 <div> <h1 className={turn % 2 == 0 ? 'active' : 'not-active'} >Jatekos1: {p1}</h1><h1 className={turn % 2 != 0 ? 'active' : 'not-active'}>Jatekos2: {p2}</h1></div>
