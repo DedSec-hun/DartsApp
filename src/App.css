@@ -61,13 +61,6 @@ display: inline-block;
    }
   }
 
-h3{
-  position: relative;
-  left: 20%;
-  top: -60%;
-  user-select: none;
-}
-
 .slice {
   overflow: hidden;
   position: absolute;
@@ -154,6 +147,57 @@ font-family: 'Trebuchet MS', sans-serif;
   touch-action: manipulation;
 }
 
+.dart-img {
+height: 2vh;
+float: right;
+transform: rotate(-20deg);
+}
+
+.button-dart {
+  background-color: #13aa52;
+  border: 1px solid #13aa52;
+  width: 33vw;
+  height: 6vh;
+  border-radius: 4px;
+  font-size: 3vh;
+  font-weight: 400;
+  outline: none;
+  outline: 0;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.darts{
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+}
+
+.multiplier-fullscreen{
+height: 100%;
+width: 100%;
+position: absolute;
+top: 0;
+left: 0;
+background-color: #282c34;
+}
+
+.double{
+  color: white;
+  background-color: #13aa52;
+  height: 60%;
+  width: 100%;
+}
+
+.triple{
+  color: white;
+  background-color: red;
+  height: 40%;
+  width: 100%;
+}
 
 .multiplier-counter {
   height: 20px;
@@ -176,7 +220,6 @@ button:hover {
 
 
 .active {
-
 color: green;
 }
 
