@@ -132,7 +132,7 @@ transform:  skewX(15deg) skewY(-10deg) scaleY(4);
 font-size: smaller;
 font-family: 'Trebuchet MS', sans-serif;
 }
-button {
+.button-normal {
   background-color: #13aa52;
   border: 1px solid #13aa52;
   border-radius: 4px;
@@ -152,6 +152,15 @@ button {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+}
+
+
+.multiplier-counter {
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100%;
 }
 
 button:hover {
