@@ -16,6 +16,7 @@ const Score = (props) => {
             return (
 
               <tr>
+                <td>{i}</td>
               <td>{item}</td>
               <td>{props.scorehistoryp2[i]}</td>
   

@@ -2,12 +2,14 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import dart from "./dart.png";
 import Score from "./Score";
+import Players from "./Players";
 
 function App() {
   const [counter, setCounter] = React.useState(0); //hook jó lenne figyelni
   const [hidden, setHidden] = useState("hidden");
   const [hiddenBull, setHiddenBull] = useState("hidden");
   const [hiddenScore, setHiddenScore] = useState("hidden");
+  const [hiddenPlayers, setHiddenPlayers] = useState("visible");
   const [dartX, setDartX] = useState(0);
   const intervalRef = React.useRef(null);
   const [dart1, setD1] = useState(0);
@@ -18,8 +20,10 @@ function App() {
   const [turnSum, setTurnSum] = useState(0);
 
   const [p1, setP1] = useState(501);
+  const [p1name, setP1name] = useState('Játékos1');
   const [roundsP1, setRoundsP1] = useState([]);
   const [p2, setP2] = useState(501);
+  const [p2name, setP2name] = useState('Játékos2');
   const [roundsP2, setRoundsP2] = useState([]);
 
   let slices = [    1, 18, 4, 13, 6, 10, 15, 2, 17, 3, 19, 7, 16, 8, 11, 14, 9, 12, 5, 20  ];
@@ -82,35 +86,13 @@ hitCounter(hitvalue,1);
   const multiplierDouble = () => {
     let multiplier = 2;
     setHidden("hidden");
-    if (dart1 == 0) {
-      setD1(dartX * multiplier);
-      return;
-    }
-    if (dart2 == 0) {
-      setD2(dartX * multiplier);
-      return;
-    }
-    if (dart3 == 0) {
-      setD3(dartX * multiplier);
-      return;
-    }
+    hitCounter(dartX,multiplier);
   };
 
   const multiplierTriple = () => {
     let multiplier = 3;
     setHidden("hidden");
-    if (dart1 == 0) {
-      setD1(dartX * multiplier);
-      return;
-    }
-    if (dart2 == 0) {
-      setD2(dartX * multiplier);
-      return;
-    }
-    if (dart3 == 0) {
-      setD3(dartX * multiplier);
-      return;
-    }
+    hitCounter(dartX,multiplier);
   };
 
   const LoaderStyle = {
@@ -127,6 +109,10 @@ hitCounter(hitvalue,1);
 
   const ScoreStyle = {
     visibility: `${hiddenScore}`,
+  };
+
+  const PlayersStyle = {
+    visibility: `${hiddenPlayers}`,
   };
 
   useEffect(() => {
@@ -146,7 +132,7 @@ hitCounter(hitvalue,1);
   return (
     <div className="Appview">
       <div className="multiplier-counter" style={LoaderStyle}></div>
-      <div className="dart-sum"> <h2 className="noselect">{turnSum}   </h2> </div>
+      <div className="dart-sum"> <h2 className="noselect"> Kör: {Math.floor(turn - turn / 2)} Szumma: {turnSum} Jelenleg: {turn % 2 == 0 ? p1 - turnSum : p2 - turnSum}   </h2> </div>
       <div className="darts">
         <button className="button-dart" onClick={() => setD1(0)}>
           {dart1}
@@ -189,15 +175,15 @@ hitCounter(hitvalue,1);
       <button className="button-normal" onClick={() =>  setHiddenScore('visible')} > <p className="noselect">Score </p> </button>
      
       <div>
-        
         <h1 className={turn % 2 == 0 ? "active" : "not-active"}>
-          Jatekos1: {p1}
+        {p1name} {p1}
         </h1>
         <h1 className={turn % 2 != 0 ? "active" : "not-active"}>
-          Jatekos2: {p2}
+        {p2name} {p2}
         </h1>
       </div>
-      <h1> Kör: {Math.floor(turn - turn / 2)}</h1>
+      
+
       <div className="multiplier-fullscreen" style={MultiplierStyle}>
         <button onClick={multiplierDouble} className="double">
           
@@ -219,7 +205,8 @@ hitCounter(hitvalue,1);
       </div>
 
       <div style={ScoreStyle}> <Score scorep1={p1} scorep2={p2} scorehistoryp1={roundsP1}  scorehistoryp2={roundsP2} setscoreboardvisibility={setHiddenScore} scoreboardvisibility={hiddenScore} /></div>
-      
+      <div style={PlayersStyle}> <Players sethiddenplayers={setHiddenPlayers} p1name={p1name} p2name={p2name} setp1name={setP1name} setp2name={setP2name} /></div>
+  
     </div>
   );
 }

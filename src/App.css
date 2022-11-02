@@ -125,11 +125,13 @@ user-select: none;
 pointer-events: none;
 }
 .button-normal {
+  margin-left: 1px;
+  margin-right: 1px;
   float: right;
   background-color: #13aa52;
   border: 1px solid #13aa52;
   border-radius: 4px;
-  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-shadow: rgba(10, 0, 0, 0) 10px 10px 10px 10px;
   box-sizing: border-box;
   color: black;
   cursor: pointer;
@@ -173,7 +175,7 @@ transform: rotate(-20deg);
   position: inherit;
   background-color: #13aa52;
   border: 1px solid #13aa52;
-  width: 100vw;
+  width: 99vw;
   height: 10vh;
   border-radius: 4px;
   font-weight: 400;
