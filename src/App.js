@@ -24,9 +24,8 @@ function App() {
   ];
 
   const endTurn = () => {
-    if (turn % 2 == 0) setP1(p1 + turnSum);
-    if (turn % 2 != 0) setP2(p2 + turnSum);
-    roundsP1.push(turnSum);
+    if (turn % 2 == 0) {setP1(p1 + turnSum); setRoundsP1(roundsP1 => [...roundsP1,turnSum]);}
+    if (turn % 2 != 0) {setP2(p2 + turnSum); setRoundsP2(roundsP2 => [...roundsP2,turnSum]);}
     setTurn(turn + 1);
     setD1(0);
     setD2(0);
@@ -68,6 +67,7 @@ let hitvalue = parseInt(event.target.id);
   };
 
   function multiplier(dart) {
+    window.navigator.vibrate(200);
     setDartX(dart);
     setHidden("visible");
     console.log(dart);
