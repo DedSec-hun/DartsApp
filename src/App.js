@@ -226,20 +226,20 @@ let hitvalue = parseInt(event.target.id);
       <div className="multiplier-fullscreen" style={Multiplier}>
         <button onClick={multiplierDouble} className="double">
           
-          <h1>Double</h1> <h1>{dartX}</h1>
+          <h1 className="noselect">Double <br></br> {dartX}</h1>
         </button>
         <button onClick={multiplierTriple}  className="triple">
-          <h1>Triple</h1> <h1>{dartX}</h1>
+          <h1 className="noselect">Triple <br></br> {dartX}</h1>
         </button>
       </div>
 
       <div className="multiplier-fullscreen" style={Bully}>
         <button onClick={bullCount}  className="double">
           
-          <h1>25</h1>
+          <h1 className="noselect">25</h1>
         </button>
         <button onClick={bullseyeCount}  className="triple">
-          <h1>BULLSEYE</h1>
+          <h1 className="noselect">BULLSEYE</h1>
         </button>
       </div>
       {/* <Score scorep1={p1} scorep2={p2} scorehistoryp1={roundsP1}  scorehistoryp2={roundsP2}/> */}
