@@ -27,13 +27,11 @@
 .board {
   overflow:hidden;
   position: relative;
-  bottom: 0;
   border: solid 3vw black;
   padding: 0;
   width: 90vw; height: 90vw;
   border-radius: 50%;
   list-style: none;
-  bottom: 0px;
 }
 
 .bull {
@@ -127,6 +125,7 @@ user-select: none;
 pointer-events: none;
 }
 .button-normal {
+  float: right;
   background-color: #13aa52;
   border: 1px solid #13aa52;
   border-radius: 4px;
@@ -135,8 +134,7 @@ pointer-events: none;
   color: black;
   cursor: pointer;
   font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 10px;
   outline: none;
   outline: 0;
   padding: 10px 25px;
@@ -145,7 +143,6 @@ pointer-events: none;
   transition: transform 150ms, box-shadow 150ms;
   user-select: none;
   -webkit-user-select: none;
-  touch-action: manipulation;
 }
 
 .dart-img {
@@ -169,6 +166,21 @@ transform: rotate(-20deg);
   transition: transform 150ms, box-shadow 150ms;
   user-select: none;
   -webkit-user-select: none;
+  z-index: 1;
+}
+
+.dart-sum {
+  position: inherit;
+  background-color: #13aa52;
+  border: 1px solid #13aa52;
+  width: 100vw;
+  height: 10vh;
+  border-radius: 4px;
+  font-weight: 400;
+  outline: none;
+  outline: 0;
+  text-align: center;
+  z-index: 0;
 }
 
 .darts{
@@ -201,8 +213,11 @@ background-color: #282c34;
 }
 
 .multiplier-counter {
+  background-color: red;
   height: 20px;
+  width: 0px;
   position: absolute;
+  border: none;
   top: 0;
   left: 0;
   max-width: 100%;
@@ -240,3 +255,13 @@ h1{
   pointer-events: none;
 }
 
+
+.scoreBoard{
+  height: 100%;
+width: 100%;
+position: absolute;
+top: 0;
+left: 0;
+background-color: #282c34;
+z-index: 2;
+}

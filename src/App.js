@@ -1,10 +1,13 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import dart from "./dart.png";
+import Score from "./Score";
+
 function App() {
   const [counter, setCounter] = React.useState(0); //hook jó lenne figyelni
   const [hidden, setHidden] = useState("hidden");
   const [hiddenBull, setHiddenBull] = useState("hidden");
+  const [hiddenScore, setHiddenScore] = useState("hidden");
   const [dartX, setDartX] = useState(0);
   const intervalRef = React.useRef(null);
   const [dart1, setD1] = useState(0);
@@ -14,38 +17,42 @@ function App() {
   const [turn, setTurn] = useState(0);
   const [turnSum, setTurnSum] = useState(0);
 
-  const [p1, setP1] = useState(0);
+  const [p1, setP1] = useState(501);
   const [roundsP1, setRoundsP1] = useState([]);
-  const [p2, setP2] = useState(0);
+  const [p2, setP2] = useState(501);
   const [roundsP2, setRoundsP2] = useState([]);
 
-  let slices = [
-    1, 18, 4, 13, 6, 10, 15, 2, 17, 3, 19, 7, 16, 8, 11, 14, 9, 12, 5, 20,
-  ];
+  let slices = [    1, 18, 4, 13, 6, 10, 15, 2, 17, 3, 19, 7, 16, 8, 11, 14, 9, 12, 5, 20  ];
 
   const endTurn = () => {
-    if (turn % 2 == 0) {setP1(p1 + turnSum); setRoundsP1(roundsP1 => [...roundsP1,turnSum]);}
-    if (turn % 2 != 0) {setP2(p2 + turnSum); setRoundsP2(roundsP2 => [...roundsP2,turnSum]);}
+    if (turn % 2 == 0) {setP1(p1 - turnSum); setRoundsP1(roundsP1 => [...roundsP1,turnSum]);}
+    if (turn % 2 != 0) {setP2(p2 - turnSum); setRoundsP2(roundsP2 => [...roundsP2,turnSum]);}
     setTurn(turn + 1);
     setD1(0);
     setD2(0);
     setD3(0);
+    navigator.vibrate(200);
   };
+
+function hitCounter(dart, multiplier) {
+
+  if (dart1 == 0) {
+    setD1(dart * multiplier);
+    return;
+  }
+  if (dart2 == 0) {
+    setD2(dart * multiplier);
+    return;
+  }
+  if (dart3 == 0) {
+    setD3(dart * multiplier);
+    return;
+  }
+}
 
   const hit = (event) => {
 let hitvalue = parseInt(event.target.id);
-    if (dart1 == 0) {
-      setD1(hitvalue);
-      return;
-    }
-    if (dart2 == 0) {
-      setD2(hitvalue);
-      return;
-    }
-    if (dart3 == 0) {
-      setD3(hitvalue);
-      return;
-    }
+hitCounter(hitvalue,1);
   };
 
   const startCounter = () => {
@@ -67,7 +74,6 @@ let hitvalue = parseInt(event.target.id);
   };
 
   function multiplier(dart) {
-    window.navigator.vibrate(200);
     setDartX(dart);
     setHidden("visible");
     console.log(dart);
@@ -107,67 +113,40 @@ let hitvalue = parseInt(event.target.id);
     }
   };
 
-  const Loader = {
+  const LoaderStyle = {
     width: `${counter}%`,
   };
 
-  const Multiplier = {
+  const MultiplierStyle = {
     visibility: `${hidden}`,
   };
 
-  const Bully = {
+  const BullStyle = {
     visibility: `${hiddenBull}`,
+  };
+
+  const ScoreStyle = {
+    visibility: `${hiddenScore}`,
   };
 
   useEffect(() => {
     setTurnSum(dart1 + dart2 + dart3);
   }, [dart1, dart2, dart3]);
 
-  const bullCount = (event) => {
-    if (dart1 == 0) {
-      setD1(25);
-      setHiddenBull("hidden");
-      return;
-    }
-    if (dart2 == 0) {
-      setD2(25);
-      setHiddenBull("hidden");
-      return;
-    }
-    if (dart3 == 0) {
-      setD3(25);
-      setHiddenBull("hidden");
-      return;
-    }
-
+  const bullCount = () => {
+    hitCounter(25,1);
     setHiddenBull("hidden");
   };
 
-  
-  const bullseyeCount = (event) => {
-    if (dart1 == 0) {
-      setD1(50);
-      setHiddenBull("hidden");
-      return;
-    }
-    if (dart2 == 0) {
-      setD2(50);
-      setHiddenBull("hidden");
-      return;
-    }
-    if (dart3 == 0) {
-      setD3(50);
-      setHiddenBull("hidden");
-      return;
-    }
-
+  const bullseyeCount = () => {
+    hitCounter(50,1);
     setHiddenBull("hidden");
   };
 
   return (
     <div className="Appview">
-      <h1> Kör: {Math.floor(turn - turn / 2)}</h1>
-      <h1> Kör szumma: {turnSum}</h1>
+      <div className="multiplier-counter" style={LoaderStyle}></div>
+      <div className="dart-sum"> <h2 className="noselect">{turnSum}   </h2> </div>
       <div className="darts">
         <button className="button-dart" onClick={() => setD1(0)}>
           {dart1}
@@ -182,10 +161,7 @@ let hitvalue = parseInt(event.target.id);
           <img className="dart-img" src={dart} alt="dart" />
         </button>
       </div>
-      <button className="multiplier-counter" style={Loader}>
-        {counter}
-      </button>
-
+    
       <ul className="board">
         {slices.map(function (item, i) {
           let design_slice = i % 2 ? "slice-contents" : "slice-contents-wheat";
@@ -204,15 +180,14 @@ let hitvalue = parseInt(event.target.id);
           );
         })}
         <span onClick={() => setHiddenBull("visible")} className={"bull"}>
-          
         </span>
       </ul>
 
-      <button className="button-normal"> <p className="noselect">Score </p> </button>
       <button className="button-normal" onClick={endTurn}>
       <p className="noselect">next </p>
       </button>
-
+      <button className="button-normal" onClick={() =>  setHiddenScore('visible')} > <p className="noselect">Score </p> </button>
+     
       <div>
         
         <h1 className={turn % 2 == 0 ? "active" : "not-active"}>
@@ -222,8 +197,8 @@ let hitvalue = parseInt(event.target.id);
           Jatekos2: {p2}
         </h1>
       </div>
-
-      <div className="multiplier-fullscreen" style={Multiplier}>
+      <h1> Kör: {Math.floor(turn - turn / 2)}</h1>
+      <div className="multiplier-fullscreen" style={MultiplierStyle}>
         <button onClick={multiplierDouble} className="double">
           
           <h1 className="noselect">Double <br></br> {dartX}</h1>
@@ -233,7 +208,7 @@ let hitvalue = parseInt(event.target.id);
         </button>
       </div>
 
-      <div className="multiplier-fullscreen" style={Bully}>
+      <div className="multiplier-fullscreen" style={BullStyle}>
         <button onClick={bullCount}  className="double">
           
           <h1 className="noselect">25</h1>
@@ -242,7 +217,9 @@ let hitvalue = parseInt(event.target.id);
           <h1 className="noselect">BULLSEYE</h1>
         </button>
       </div>
-      {/* <Score scorep1={p1} scorep2={p2} scorehistoryp1={roundsP1}  scorehistoryp2={roundsP2}/> */}
+
+      <div style={ScoreStyle}> <Score scorep1={p1} scorep2={p2} scorehistoryp1={roundsP1}  scorehistoryp2={roundsP2} setscoreboardvisibility={setHiddenScore} scoreboardvisibility={hiddenScore} /></div>
+      
     </div>
   );
 }
