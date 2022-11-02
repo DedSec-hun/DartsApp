@@ -8,6 +8,7 @@
   background-color: #282c34;
   height: 100%;
   color: white;
+
 }
 
 .App-link {
@@ -114,9 +115,7 @@ display: inline-block;
   background: #13aa52;
 }
 
-p{
-  user-select: none;
-  pointer-events: none;
+.p-slice{
 margin: 0 0 0 0;
 position: relative;
 top: 20vw;
@@ -124,6 +123,8 @@ left: 0vh;
 transform:  skewX(15deg) skewY(-10deg) scaleY(4);
 font-size: smaller;
 font-family: 'Trebuchet MS', sans-serif;
+user-select: none;
+pointer-events: none;
 }
 .button-normal {
   background-color: #13aa52;
@@ -219,6 +220,11 @@ button:hover {
 }
 
 
+.noselect {
+  user-select: none;
+  pointer-events: none;
+}
+
 .active {
 color: green;
 }
@@ -226,5 +232,11 @@ color: green;
 .not-active {
   color: white;
 
+}
+
+h1{
+
+  user-select: none;
+  pointer-events: none;
 }
 

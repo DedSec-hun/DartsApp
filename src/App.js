@@ -197,10 +197,8 @@ let hitvalue = parseInt(event.target.id);
                 id={item}
                 onClick={hit}
                 onTouchStart={startCounter}
-                onTouchEnd={stopCounter}
-              >
-                
-                <p>{item}</p>
+                onTouchEnd={stopCounter}>
+                <p className="p-slice" >{item}</p>
               </div>
             </li>
           );
@@ -210,10 +208,9 @@ let hitvalue = parseInt(event.target.id);
         </span>
       </ul>
 
-      <button className="button-normal">Score</button>
+      <button className="button-normal"> <p className="noselect">Score </p> </button>
       <button className="button-normal" onClick={endTurn}>
-        
-        Next
+      <p className="noselect">next </p>
       </button>
 
       <div>
