@@ -29,8 +29,8 @@ function App() {
   let slices = [    1, 18, 4, 13, 6, 10, 15, 2, 17, 3, 19, 7, 16, 8, 11, 14, 9, 12, 5, 20  ];
 
   const endTurn = () => {
-    if (turn % 2 == 0) {setP1(p1 - turnSum); setRoundsP1(roundsP1 => [...roundsP1,turnSum]);}
-    if (turn % 2 != 0) {setP2(p2 - turnSum); setRoundsP2(roundsP2 => [...roundsP2,turnSum]);}
+    if (turn % 2 === 0) {setP1(p1 - turnSum); setRoundsP1(roundsP1 => [...roundsP1,turnSum]);}
+    if (turn % 2 !== 0) {setP2(p2 - turnSum); setRoundsP2(roundsP2 => [...roundsP2,turnSum]);}
     setTurn(turn + 1);
     setD1(0);
     setD2(0);
@@ -40,15 +40,15 @@ function App() {
 
 function hitCounter(dart, multiplier) {
 
-  if (dart1 == 0) {
+  if (dart1 === 0) {
     setD1(dart * multiplier);
     return;
   }
-  if (dart2 == 0) {
+  if (dart2 === 0) {
     setD2(dart * multiplier);
     return;
   }
-  if (dart3 == 0) {
+  if (dart3 === 0) {
     setD3(dart * multiplier);
     return;
   }
@@ -132,7 +132,7 @@ hitCounter(hitvalue,1);
   return (
     <div className="Appview">
       <div className="multiplier-counter" style={LoaderStyle}></div>
-      <div className="dart-sum"> <h2 className="noselect"> Kör: {Math.floor(turn - turn / 2)} Szumma: {turnSum} Jelenleg: {turn % 2 == 0 ? p1 - turnSum : p2 - turnSum}   </h2> </div>
+      <div className="dart-sum"> <h2 className="noselect"> Kör: {Math.floor(turn - turn / 2)} Szumma: {turnSum} Jelenleg: {turn % 2 === 0 ? p1 - turnSum : p2 - turnSum}   </h2> </div>
       <div className="darts">
         <button className="button-dart" onClick={() => setD1(0)}>
           {dart1}
@@ -175,14 +175,13 @@ hitCounter(hitvalue,1);
       <button className="button-normal" onClick={() =>  setHiddenScore('visible')} > <p className="noselect">Score </p> </button>
      
       <div>
-        <h1 className={turn % 2 == 0 ? "active" : "not-active"}>
+        <h1 className={turn % 2 === 0 ? "active" : "not-active"}>
         {p1name} {p1}
         </h1>
-        <h1 className={turn % 2 != 0 ? "active" : "not-active"}>
+        <h1 className={turn % 2 !== 0 ? "active" : "not-active"}>
         {p2name} {p2}
         </h1>
       </div>
-      
 
       <div className="multiplier-fullscreen" style={MultiplierStyle}>
         <button onClick={multiplierDouble} className="double">
