@@ -12,6 +12,7 @@ function App() {
   const [hiddenPlayers, setHiddenPlayers] = useState("visible");
   const [dartX, setDartX] = useState(0);
   const intervalRef = React.useRef(null);
+
   const [dart1, setD1] = useState(0);
   const [dart2, setD2] = useState(0);
   const [dart3, setD3] = useState(0);
@@ -26,7 +27,7 @@ function App() {
   const [p2name, setP2name] = useState('Játékos2');
   const [roundsP2, setRoundsP2] = useState([]);
 
-  let slices = [    1, 18, 4, 13, 6, 10, 15, 2, 17, 3, 19, 7, 16, 8, 11, 14, 9, 12, 5, 20  ];
+  let slices = [1, 18, 4, 13, 6, 10, 15, 2, 17, 3, 19, 7, 16, 8, 11, 14, 9, 12, 5, 20];
 
   const endTurn = () => {
     if (turn % 2 === 0) {setP1(p1 - turnSum); setRoundsP1(roundsP1 => [...roundsP1,turnSum]);}
@@ -168,8 +169,6 @@ hitCounter(hitvalue,1);
         <span onClick={() => setHiddenBull("visible")} className={"bull"}>
         </span>
       </ul>
-
-
      
       <div className="bottom">
       <button className="button-normal" onClick={() =>  setHiddenScore('visible')} > <p className="noselect">Score </p> </button>
@@ -180,13 +179,12 @@ hitCounter(hitvalue,1);
         {p2name} <br></br> {p2}
         </h1>
         <button className="button-normal right" onClick={endTurn}>
-      <p className="noselect">next </p>
+      <p className="noselect">Next </p>
       </button>
       </div>
 
       <div className="multiplier-fullscreen" style={MultiplierStyle}>
         <button onClick={multiplierDouble} className="double">
-          
           <h1 className="noselect">Double <br></br> {dartX}</h1>
         </button>
         <button onClick={multiplierTriple}  className="triple">
@@ -196,7 +194,6 @@ hitCounter(hitvalue,1);
 
       <div className="multiplier-fullscreen" style={BullStyle}>
         <button onClick={bullCount}  className="double">
-          
           <h1 className="noselect">25</h1>
         </button>
         <button onClick={bullseyeCount}  className="triple">

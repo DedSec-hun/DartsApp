@@ -924,8 +924,6 @@ props.setp1name(p1+ ' ' +emojip1);
 props.setp2name(p2+ ' ' +emojip2);
 props.sethiddenplayers('hidden')
 }
-
-
  
   const handleChange1 = event => {
     setEmojip1(allEmojis[Math.floor(Math.random() * (max - 1 + 1))]);
@@ -936,36 +934,36 @@ props.sethiddenplayers('hidden')
     setP2(event.target.value);
   };
 
-
-
   return(
-  <div className='scoreBoard'>
-<h1>
-{p1} 
-</h1>
-<h1>
-{p2} 
-</h1>
- <input
+<div className='scoreBoard'>
+
+<div class="form__group field">
+<input
+ class="form__field"
         type="text"
         id="message"
         name="message"
         onChange={handleChange1}
+        placeholder={p1}
         value={p1}
       />
- <input
+  <label for="name" class="form__label">Játékos 1 neve</label>
+</div>
+<div class="form__group field">
+<input
+ class="form__field"
         type="text"
         id="message"
         name="message"
         onChange={handleChange2}
+        placeholder={p2}
         value={p2}
       />
-
-
-<button className='button-normal' onClick={startGame} >START</button>
-
+  <label for="name" class="form__label">Játékos 2 neve</label>
 </div>
 
+<button className='button-normal' onClick={startGame} >START</button>
+</div>
   )}
   
 
