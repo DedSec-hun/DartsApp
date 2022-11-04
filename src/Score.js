@@ -23,8 +23,8 @@ const Score = (props) => {
 
 <tr>
   <td>AVG</td>
-  <td>{ Math.floor(props.scorehistoryp1.reduce((a,v) =>  a = a + v) / props.scorehistoryp1.length)}</td>
-  <td>{Math.floor(props.scorehistoryp2.reduce((a,v) =>  a = a + v ) / props.scorehistoryp2.length)}</td>
+  <td>{ props.scorehistoryp1.length > 0 ?  Math.floor(props.scorehistoryp1.reduce((a,v) =>  a = a + v) / props.scorehistoryp1.length): '' }</td>
+  <td>{ props.scorehistoryp2.length > 0 ? Math.floor(props.scorehistoryp2.reduce((a,v) =>  a = a + v ) / props.scorehistoryp2.length): '' }</td>
 </tr>
 </table> 
 <div>

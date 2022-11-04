@@ -1,5 +1,5 @@
 import './App.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 const Players = (props) => {
 
   const [emojip1, setEmojip1] = useState('');
@@ -920,8 +920,8 @@ const Players = (props) => {
 const max = allEmojis.length;
 const startGame = () => {
   console.log("START");
-props.setp1name(p1+ emojip1);
-props.setp2name(p2+ emojip2);
+props.setp1name(p1+ ' ' +emojip1);
+props.setp2name(p2+ ' ' +emojip2);
 props.sethiddenplayers('hidden')
 }
 
@@ -943,7 +943,7 @@ props.sethiddenplayers('hidden')
 <h1>
 {p1} 
 </h1>
-<h1>W
+<h1>
 {p2} 
 </h1>
  <input

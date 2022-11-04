@@ -124,10 +124,15 @@ font-family: 'Trebuchet MS', sans-serif;
 user-select: none;
 pointer-events: none;
 }
+
+.bottom{
+  display: flex;
+  width: 100vw;
+}
+
 .button-normal {
   margin-left: 1px;
   margin-right: 1px;
-  float: right;
   background-color: #13aa52;
   border: 1px solid #13aa52;
   border-radius: 4px;
@@ -145,6 +150,11 @@ pointer-events: none;
   transition: transform 150ms, box-shadow 150ms;
   user-select: none;
   -webkit-user-select: none;
+}
+
+.button-normal :right {
+float: right;
+
 }
 
 .dart-img {

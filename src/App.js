@@ -169,18 +169,19 @@ hitCounter(hitvalue,1);
         </span>
       </ul>
 
-      <button className="button-normal" onClick={endTurn}>
-      <p className="noselect">next </p>
-      </button>
-      <button className="button-normal" onClick={() =>  setHiddenScore('visible')} > <p className="noselect">Score </p> </button>
+
      
-      <div>
+      <div className="bottom">
+      <button className="button-normal" onClick={() =>  setHiddenScore('visible')} > <p className="noselect">Score </p> </button>
         <h1 className={turn % 2 === 0 ? "active" : "not-active"}>
-        {p1name} {p1}
+        {p1name} <br></br>{p1}
         </h1>
         <h1 className={turn % 2 !== 0 ? "active" : "not-active"}>
-        {p2name} {p2}
+        {p2name} <br></br> {p2}
         </h1>
+        <button className="button-normal right" onClick={endTurn}>
+      <p className="noselect">next </p>
+      </button>
       </div>
 
       <div className="multiplier-fullscreen" style={MultiplierStyle}>
