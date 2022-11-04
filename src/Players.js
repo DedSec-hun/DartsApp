@@ -1,4 +1,6 @@
 import './App.css';
+
+import dart from "./dart.png";
 import { useState } from 'react';
 const Players = (props) => {
 
@@ -936,7 +938,9 @@ props.sethiddenplayers('hidden')
 
   return(
 <div className='scoreBoard'>
-
+  <h2>RETEK DARTS APP</h2>
+<img className="dart-img-main" src={dart} alt="" />
+  
 <div class="form__group field">
 <input
  class="form__field"
@@ -947,7 +951,7 @@ props.sethiddenplayers('hidden')
         placeholder={p1}
         value={p1}
       />
-  <label for="name" class="form__label">Játékos 1 neve</label>
+  <label for="name" class="form__label">Név</label>
 </div>
 <div class="form__group field">
 <input
@@ -959,10 +963,10 @@ props.sethiddenplayers('hidden')
         placeholder={p2}
         value={p2}
       />
-  <label for="name" class="form__label">Játékos 2 neve</label>
+  <label for="name" class="form__label">Név</label>
 </div>
 
-<button className='button-normal' onClick={startGame} >START</button>
+<button className='button-dart' onClick={startGame} >START</button>
 </div>
   )}
   

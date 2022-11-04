@@ -7,7 +7,6 @@
 .Appview {
   background-color: #282c34;
   height: 100%;
-  color: white;
 }
 
 .App-link {
@@ -24,21 +23,25 @@
   }
 }
 
+.board-holder {
+position: relative;
+height: 100vw;
+}
 
 .board {
   overflow: hidden;
   position: absolute;
-  top: 63vw;
+  top: 8vw;
   left: 12vw;
   padding: 0;
   width: 76vw;
   aspect-ratio: 1/1;
   border-radius: 50%;
   list-style: none;
+  z-index: 1;
 }
 .dartboard-img {
 position: absolute;
-top: 54vw;
 padding: 0;
 width: 100vw;
 height: 100vw;
@@ -204,10 +207,6 @@ z-index: 0;
 }
 
 .bottom {
-  float: right;
-  position: absolute;
-  bottom: 0;
-  left: 0;
   display: flex;
 }
 
@@ -225,7 +224,7 @@ z-index: 0;
   font-size: 10px;
   outline: none;
   outline: 0;
-  padding: 10px 25px;
+  padding: 5px 15px;
   text-align: center;
   transform: translateY(0);
   transition: transform 150ms, box-shadow 150ms;
@@ -237,6 +236,14 @@ z-index: 0;
   height: 2vh;
   float: right;
   transform: rotate(-20deg);
+}
+.dart-img-main {
+  position: absolute;
+  height: 20vh;
+  top: 40vh;
+  left: -10vh;
+  float: right;
+  transform: rotate(-90deg);
 }
 
 .button-dart {
@@ -257,10 +264,9 @@ z-index: 0;
   z-index: 1;
 }
 
+
 .dart-sum {
-  position: inherit;
   background-color: #13aa52;
-  border: 1px solid #13aa52;
   width: 99vw;
   height: 10vh;
   border-radius: 4px;
@@ -278,25 +284,26 @@ z-index: 0;
 }
 
 .multiplier-fullscreen {
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   position: absolute;
   top: 0;
   left: 0;
   background-color: #282c34;
+  z-index: 10;
 }
 
 .double {
   color: white;
   background-color: #13aa52;
-  height: 60%;
+  height: 40%;
   width: 100%;
 }
 
 .triple {
   color: white;
   background-color: red;
-  height: 40%;
+  height: 50%;
   width: 100%;
 }
 
@@ -328,10 +335,12 @@ button:hover {
 }
 
 .active {
+  font-size: 5vh;
   color: green;
 }
 
 .not-active {
+  font-size: medium;
   color: white;
 }
 
@@ -353,7 +362,8 @@ h1 {
 .form__group {
   position: relative;
   padding: 15px 0 0;
-  margin-top: 10px;
+  margin-bottom: 20vh;
+  margin-top: 20vh;
   width: 50%;
 }
 
@@ -361,11 +371,11 @@ h1 {
   font-family: inherit;
   width: 100%;
   border: 0;
-  border-bottom: 2px solid gray;
+  border-bottom: 4px solid gray;
   outline: 0;
   font-size: 1.3rem;
   color: white;
-  padding: 7px 0;
+  padding: 7px 10px;
   background: transparent;
   transition: border-color 0.2s;
 }

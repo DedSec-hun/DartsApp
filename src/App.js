@@ -6,11 +6,12 @@ import Score from "./Score";
 import Players from "./Players";
 
 function App() {
-  const [counter, setCounter] = React.useState(0); //hook jó lenne figyelni
+  const [counter, setCounter] = React.useState(0);
   const [hidden, setHidden] = useState("hidden");
   const [hiddenBull, setHiddenBull] = useState("hidden");
   const [hiddenScore, setHiddenScore] = useState("hidden");
   const [hiddenPlayers, setHiddenPlayers] = useState("visible");
+
   const [dartX, setDartX] = useState(0);
   const intervalRef = React.useRef(null);
 
@@ -39,6 +40,10 @@ function App() {
     setD3(0);
     navigator.vibrate(200);
   };
+
+    window.onbeforeunload = function() {
+        return "Az oldal újratöltésével új játékot kezdesz. Folyatatod?";
+    }
 
 function hitCounter(dart, multiplier) {
 
@@ -133,9 +138,9 @@ hitCounter(hitvalue,1);
 
   return (
     <div className="Appview">
-      <div className="multiplier-counter" style={LoaderStyle}></div>
-      <div className="dart-sum"> <h2 className="noselect"> Kör: {Math.floor(turn - turn / 2)} Szumma: {turnSum} Jelenleg: {turn % 2 === 0 ? p1 - turnSum : p2 - turnSum}   </h2> </div>
-      <div className="darts">
+      <div onClick={() =>  setHiddenScore('visible')} className="multiplier-counter" style={LoaderStyle}></div>
+      <div onClick={() =>  setHiddenScore('visible')} className="dart-sum"> <h2 className="noselect"> Kör: {Math.floor(turn - turn / 2)} Szumma: {turnSum} Jelenleg: {turn % 2 === 0 ? p1 - turnSum : p2 - turnSum}   </h2> </div>
+      <div onClick={() =>  setHiddenScore('visible')} className="darts">
         <button className="button-dart" onClick={() => setD1(0)}>
           {dart1}
           <img className="dart-img" src={dart} alt="dart" />
@@ -150,8 +155,8 @@ hitCounter(hitvalue,1);
         </button>
       </div>
 
-      <div>     <img className="dartboard-img" src={dartboard} alt="" />
-      <ul className="board">
+      <div className="board-holder">     
+       <ul className="board">
         {slices.map(function (item, i) {
           let design_slice = i % 2 ? "slice-contents" : "slice-contents-wheat";
           return (
@@ -165,21 +170,25 @@ hitCounter(hitvalue,1);
                 <p className="p-slice" >{item}</p>
               </div>
             </li>
+
           );
         })}
-        <span onClick={() => setHiddenBull("visible")} className={"bull"}>
-        </span>
-      </ul> </div>
+          
+      <span onClick={() => setHiddenBull("visible")} className={"bull"}></span>
+      </ul> 
+      <img className="dartboard-img" src={dartboard} alt="" />
+  
+      </div>
   
      
       <div className="bottom">
-      <button className="button-normal" onClick={() =>  setHiddenScore('visible')} > <p className="noselect">Score </p> </button>
         <h1 className={turn % 2 === 0 ? "active" : "not-active"}>
         {p1name} <br></br>{p1}
         </h1>
          <h1 className={turn % 2 !== 0 ? "active" : "not-active"}>
         {p2name} <br></br> {p2}
         </h1>
+    
         <button className="button-normal" onClick={endTurn}>      <p className="noselect">Next </p>      </button>
       
       </div>
@@ -191,6 +200,9 @@ hitCounter(hitvalue,1);
         <button onClick={multiplierTriple}  className="triple">
           <h1 className="noselect">Triple <br></br> {dartX}</h1>
         </button>
+
+        <button className="button-normal" onClick={() =>  setHidden('hidden')} > <p className="noselect"> Mégse  </p> </button>
+ 
       </div>
 
       <div className="multiplier-fullscreen" style={BullStyle}>
@@ -200,6 +212,9 @@ hitCounter(hitvalue,1);
         <button onClick={bullseyeCount}  className="triple">
           <h1 className="noselect">BULLSEYE</h1>
         </button>
+
+        <button className="button-normal" onClick={() =>  setHiddenBull('hidden')} > <p className="noselect"> Mégse  </p> </button>
+ 
       </div>
 
       <div style={ScoreStyle}> <Score scorep1={p1} scorep2={p2} scorehistoryp1={roundsP1}  scorehistoryp2={roundsP2} setscoreboardvisibility={setHiddenScore} scoreboardvisibility={hiddenScore} /></div>
