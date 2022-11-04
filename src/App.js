@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import dart from "./dart.png";
+import dartboard from "./dartboard.png";
 import Score from "./Score";
 import Players from "./Players";
 
@@ -27,7 +28,7 @@ function App() {
   const [p2name, setP2name] = useState('Játékos2');
   const [roundsP2, setRoundsP2] = useState([]);
 
-  let slices = [1, 18, 4, 13, 6, 10, 15, 2, 17, 3, 19, 7, 16, 8, 11, 14, 9, 12, 5, 20];
+  let slices = [ 1, 18, 4, 13, 6, 10, 15, 2, 17, 3, 19, 7, 16, 8, 11, 14, 9, 12, 5, 20];
 
   const endTurn = () => {
     if (turn % 2 === 0) {setP1(p1 - turnSum); setRoundsP1(roundsP1 => [...roundsP1,turnSum]);}
@@ -148,11 +149,11 @@ hitCounter(hitvalue,1);
           <img className="dart-img" src={dart} alt="dart" />
         </button>
       </div>
-    
+
+      <div>     <img className="dartboard-img" src={dartboard} alt="" />
       <ul className="board">
         {slices.map(function (item, i) {
           let design_slice = i % 2 ? "slice-contents" : "slice-contents-wheat";
-
           return (
             <li className="slice">
               <div
@@ -168,19 +169,19 @@ hitCounter(hitvalue,1);
         })}
         <span onClick={() => setHiddenBull("visible")} className={"bull"}>
         </span>
-      </ul>
+      </ul> </div>
+  
      
       <div className="bottom">
       <button className="button-normal" onClick={() =>  setHiddenScore('visible')} > <p className="noselect">Score </p> </button>
         <h1 className={turn % 2 === 0 ? "active" : "not-active"}>
         {p1name} <br></br>{p1}
         </h1>
-        <h1 className={turn % 2 !== 0 ? "active" : "not-active"}>
+         <h1 className={turn % 2 !== 0 ? "active" : "not-active"}>
         {p2name} <br></br> {p2}
         </h1>
-        <button className="button-normal right" onClick={endTurn}>
-      <p className="noselect">Next </p>
-      </button>
+        <button className="button-normal" onClick={endTurn}>      <p className="noselect">Next </p>      </button>
+      
       </div>
 
       <div className="multiplier-fullscreen" style={MultiplierStyle}>
