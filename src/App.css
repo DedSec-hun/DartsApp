@@ -206,12 +206,26 @@ z-index: 0;
   pointer-events: none;
 }
 
-.bottom {
+.header {
+  width: 100%;
+  max-height: 25vh;
  display: inline-flex;
 }
 
+.p1 {
+  width: 50%;
+}
+
+.p2{
+  width: 50%;
+}
+
+.p2float{
+  float: right;
+}
+
 .button-normal {
-  right: 0;
+  width: 100%;
   margin-left: 10px;
   background-color: #13aa52;
   border: 1px solid #13aa52;
@@ -358,21 +372,34 @@ button:hover {
 }
 
 .smally {
-font-size: small;
+font-size: medium;
 color: green;
 }
 
+.turn {
+background-color: #13aa52;
+position: absolute;
+top: 0;
+left: 45vw;
+width: 10vw;
+height: 5vh;
+text-align:center;
+font-size: xx-large;
+border-radius: 0 0 50% 50%;
+}
+
 .active {
-  font-size: 5vh;
+  font-size: 6vh;
   color: #13aa52;
 }
 
 .not-active {
-  font-size: medium;
+  font-size: 3vh;
   color: white;
 }
 
 h1 {
+  margin: 0 0 0 0;
   user-select: none;
   pointer-events: none;
 }

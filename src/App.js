@@ -41,6 +41,9 @@ function App() {
     setD1(0);
     setD2(0);
     setD3(0);
+    setD1x(0);
+    setD2x(0);
+    setD3x(0);
     navigator.vibrate(100);
   };
 
@@ -149,7 +152,24 @@ hitCounter(hitvalue,1);
   return (
     <div className="Appview">
       <div className="multiplier-counter" style={LoaderStyle}></div>
+      <div className="turn"> {Math.floor(turn - turn / 2) + 1}</div>
+      <div className="header">
+        <div className="p1">
+        <h1 className={turn % 2 === 0 ? "active" : "not-active"}>
+        {p1name} <br></br>{p1} <br></br>  <div className="smally">{turn % 2 === 0 ? p1 - turnSum : ''}</div>
+        </h1>
+        </div>
+
+        <div className="p2">
+        <div className="p2float">
+        <h1 className={turn % 2 !== 0 ? "active" : "not-active"}>
+        {p2name} <br></br> {p2} <br></br>  <div className="smally">{turn % 2 === 0 ? '' : p2 - turnSum}</div>
+        </h1>
+        </div>
+        </div>      
+       </div>
       <div onClick={() =>  setHiddenScore('block')} className="dart-sum"> <h2 className="noselect"> Szumma: {turnSum}   </h2> </div>
+   
       <div className="darts">
         <button className="button-dart" onClick={() => setD1(0)}>
           {dart1x}
@@ -164,7 +184,7 @@ hitCounter(hitvalue,1);
           <img className={dart3 === 0 ? "dart-img-0" : "dart-img"} src={dart} alt="dart" />
         </button>
       </div>
-
+   
       <div className="board-holder">     
        <ul className="board">
         {slices.map(function (item, i) {
@@ -189,16 +209,9 @@ hitCounter(hitvalue,1);
   
       </div>
   
-     
-      <div className="bottom">
-        <h1 className={turn % 2 === 0 ? "active" : "not-active"}>
-        {p1name} <br></br>{p1} <br></br>  <div className="smally">{turn % 2 === 0 ? p1 - turnSum : ''}</div>
-        </h1>
-         <h1 className={turn % 2 !== 0 ? "active" : "not-active"}>
-        {p2name} <br></br> {p2} <br></br>  <div className="smally">{turn % 2 === 0 ? '' : p2 - turnSum}</div>
-        </h1>
-        <button className="button-normal" onClick={endTurn}>      <p className="noselect">Tovább  <br></br> {Math.floor(turn - turn / 2)} </p>      </button>
-      </div>
+    
+        <button className="button-normal" onClick={endTurn}>      <p className="noselect">Tovább </p>      </button>
+   
 
       <div className="multiplier-fullscreen" style={MultiplierStyle}>
         <button onClick={multiplierDouble} className="double">

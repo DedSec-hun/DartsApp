@@ -19,7 +19,7 @@ const Score = (props) => {
   {props.scorehistoryp1.map(function (item, i) {
             return (
               <tr key={i}>
-              <td>{i}</td>
+              <td>{i + 1}</td>
               <td>{item}</td>
               <td>{props.scorehistoryp2[i]}</td>
             </tr>
