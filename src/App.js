@@ -7,10 +7,10 @@ import Players from "./Players";
 
 function App() {
   const [counter, setCounter] = React.useState(0);
-  const [hidden, setHidden] = useState("hidden");
-  const [hiddenBull, setHiddenBull] = useState("hidden");
-  const [hiddenScore, setHiddenScore] = useState("hidden");
-  const [hiddenPlayers, setHiddenPlayers] = useState("visible");
+  const [hidden, setHidden] = useState("none");
+  const [hiddenBull, setHiddenBull] = useState("none");
+  const [hiddenScore, setHiddenScore] = useState("none");
+  const [hiddenPlayers, setHiddenPlayers] = useState("block");
 
   const [dartX, setDartX] = useState(0);
   const intervalRef = React.useRef(null);
@@ -18,6 +18,9 @@ function App() {
   const [dart1, setD1] = useState(0);
   const [dart2, setD2] = useState(0);
   const [dart3, setD3] = useState(0);
+  const [dart1x, setD1x] = useState(0);
+  const [dart2x, setD2x] = useState(0);
+  const [dart3x, setD3x] = useState(0);
 
   const [turn, setTurn] = useState(0);
   const [turnSum, setTurnSum] = useState(0);
@@ -38,7 +41,7 @@ function App() {
     setD1(0);
     setD2(0);
     setD3(0);
-    navigator.vibrate(200);
+    navigator.vibrate(100);
   };
 
     window.onbeforeunload = function() {
@@ -46,22 +49,27 @@ function App() {
     }
 
 function hitCounter(dart, multiplier) {
-
+let multiplier_text = '';
+if (multiplier === 2) multiplier_text = 'D ';
+if (multiplier === 3) multiplier_text = 'T ';
   if (dart1 === 0) {
     setD1(dart * multiplier);
+    setD1x(multiplier_text+dart);
     return;
   }
   if (dart2 === 0) {
     setD2(dart * multiplier);
+    setD2x(multiplier_text+dart);
     return;
   }
   if (dart3 === 0) {
     setD3(dart * multiplier);
+    setD3x(multiplier_text+dart);
     return;
   }
 }
 
-  const hit = (event) => {
+const hit = (event) => {
 let hitvalue = parseInt(event.target.id);
 hitCounter(hitvalue,1);
   };
@@ -79,6 +87,7 @@ hitCounter(hitvalue,1);
       intervalRef.current = null;
       if (counter > 100) {
         multiplier(event.target.id);
+        navigator.vibrate(50);
       }
       setCounter(0);
     }
@@ -86,19 +95,19 @@ hitCounter(hitvalue,1);
 
   function multiplier(dart) {
     setDartX(dart);
-    setHidden("visible");
+    setHidden("block");
     console.log(dart);
   }
 
   const multiplierDouble = () => {
     let multiplier = 2;
-    setHidden("hidden");
+    setHidden("none");
     hitCounter(dartX,multiplier);
   };
 
   const multiplierTriple = () => {
     let multiplier = 3;
-    setHidden("hidden");
+    setHidden("none");
     hitCounter(dartX,multiplier);
   };
 
@@ -107,51 +116,52 @@ hitCounter(hitvalue,1);
   };
 
   const MultiplierStyle = {
-    visibility: `${hidden}`,
+    display: `${hidden}`,
   };
 
   const BullStyle = {
-    visibility: `${hiddenBull}`,
+    display: `${hiddenBull}`,
   };
 
   const ScoreStyle = {
-    visibility: `${hiddenScore}`,
+    display: `${hiddenScore}`,
   };
 
   const PlayersStyle = {
-    visibility: `${hiddenPlayers}`,
+    display: `${hiddenPlayers}`,
   };
 
   useEffect(() => {
     setTurnSum(dart1 + dart2 + dart3);
+    navigator.vibrate(100);
   }, [dart1, dart2, dart3]);
 
   const bullCount = () => {
     hitCounter(25,1);
-    setHiddenBull("hidden");
+    setHiddenBull("none");
   };
 
   const bullseyeCount = () => {
     hitCounter(50,1);
-    setHiddenBull("hidden");
+    setHiddenBull("none");
   };
 
   return (
     <div className="Appview">
-      <div onClick={() =>  setHiddenScore('visible')} className="multiplier-counter" style={LoaderStyle}></div>
-      <div onClick={() =>  setHiddenScore('visible')} className="dart-sum"> <h2 className="noselect"> Kör: {Math.floor(turn - turn / 2)} Szumma: {turnSum} Jelenleg: {turn % 2 === 0 ? p1 - turnSum : p2 - turnSum}   </h2> </div>
-      <div onClick={() =>  setHiddenScore('visible')} className="darts">
+      <div className="multiplier-counter" style={LoaderStyle}></div>
+      <div onClick={() =>  setHiddenScore('block')} className="dart-sum"> <h2 className="noselect"> Szumma: {turnSum}   </h2> </div>
+      <div className="darts">
         <button className="button-dart" onClick={() => setD1(0)}>
-          {dart1}
-          <img className="dart-img" src={dart} alt="dart" />
+          {dart1x}
+          <img className={dart1 === 0 ? "dart-img-0" : "dart-img"} src={dart} alt="dart" />
         </button>
         <button className="button-dart" onClick={() => setD2(0)}>
-          {dart2}
-          <img className="dart-img" src={dart} alt="dart" />
+          {dart2x}
+          <img className={dart2 === 0 ? "dart-img-0" : "dart-img"} src={dart} alt="dart" />
         </button>
         <button className="button-dart" onClick={() => setD3(0)}>
-          {dart3}
-          <img className="dart-img" src={dart} alt="dart" />
+          {dart3x}
+          <img className={dart3 === 0 ? "dart-img-0" : "dart-img"} src={dart} alt="dart" />
         </button>
       </div>
 
@@ -167,14 +177,13 @@ hitCounter(hitvalue,1);
                 onClick={hit}
                 onTouchStart={startCounter}
                 onTouchEnd={stopCounter}>
-                <p className="p-slice" >{item}</p>
               </div>
             </li>
 
           );
         })}
           
-      <span onClick={() => setHiddenBull("visible")} className={"bull"}></span>
+      <span onClick={() => setHiddenBull("block")} className={"bull"}></span>
       </ul> 
       <img className="dartboard-img" src={dartboard} alt="" />
   
@@ -183,25 +192,23 @@ hitCounter(hitvalue,1);
      
       <div className="bottom">
         <h1 className={turn % 2 === 0 ? "active" : "not-active"}>
-        {p1name} <br></br>{p1}
+        {p1name} <br></br>{p1} <br></br>  <div className="smally">{turn % 2 === 0 ? p1 - turnSum : ''}</div>
         </h1>
          <h1 className={turn % 2 !== 0 ? "active" : "not-active"}>
-        {p2name} <br></br> {p2}
+        {p2name} <br></br> {p2} <br></br>  <div className="smally">{turn % 2 === 0 ? '' : p2 - turnSum}</div>
         </h1>
-    
-        <button className="button-normal" onClick={endTurn}>      <p className="noselect">Next </p>      </button>
-      
+        <button className="button-normal" onClick={endTurn}>      <p className="noselect">Tovább  <br></br> {Math.floor(turn - turn / 2)} </p>      </button>
       </div>
 
       <div className="multiplier-fullscreen" style={MultiplierStyle}>
         <button onClick={multiplierDouble} className="double">
-          <h1 className="noselect">Double <br></br> {dartX}</h1>
+          <h1 className="noselect">Dupla <br></br> {dartX}</h1>
         </button>
         <button onClick={multiplierTriple}  className="triple">
-          <h1 className="noselect">Triple <br></br> {dartX}</h1>
+          <h1 className="noselect">Tripla <br></br> {dartX}</h1>
         </button>
 
-        <button className="button-normal" onClick={() =>  setHidden('hidden')} > <p className="noselect"> Mégse  </p> </button>
+        <button className="button-normal" onClick={() =>  setHidden('none')} > <p className="noselect"> Mégse  </p> </button>
  
       </div>
 
@@ -213,11 +220,11 @@ hitCounter(hitvalue,1);
           <h1 className="noselect">BULLSEYE</h1>
         </button>
 
-        <button className="button-normal" onClick={() =>  setHiddenBull('hidden')} > <p className="noselect"> Mégse  </p> </button>
+        <button className="button-normal" onClick={() =>  setHiddenBull('none')} > <p className="noselect"> Mégse  </p> </button>
  
       </div>
 
-      <div style={ScoreStyle}> <Score scorep1={p1} scorep2={p2} scorehistoryp1={roundsP1}  scorehistoryp2={roundsP2} setscoreboardvisibility={setHiddenScore} scoreboardvisibility={hiddenScore} /></div>
+      <div style={ScoreStyle}> <Score scorep1={p1} scorep2={p2} scorehistoryp1={roundsP1}  scorehistoryp2={roundsP2} setscoreboardvisibility={setHiddenScore} scoreboardvisibility={hiddenScore} p1name={p1name} p2name={p2name}/></div>
       <div style={PlayersStyle}> <Players sethiddenplayers={setHiddenPlayers} p1name={p1name} p2name={p2name} setp1name={setP1name} setp2name={setP2name} /></div>
   
     </div>

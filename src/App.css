@@ -207,12 +207,12 @@ z-index: 0;
 }
 
 .bottom {
-  display: flex;
+ display: inline-flex;
 }
 
 .button-normal {
-  margin-left: 1px;
-  margin-right: 1px;
+  right: 0;
+  margin-left: 10px;
   background-color: #13aa52;
   border: 1px solid #13aa52;
   border-radius: 4px;
@@ -232,6 +232,10 @@ z-index: 0;
   -webkit-user-select: none;
 }
 
+.dart-img-0 {
+  height: 0.5vh;
+  float: right;
+}
 .dart-img {
   height: 2vh;
   float: right;
@@ -248,7 +252,7 @@ z-index: 0;
 
 .button-dart {
   background-color: #13aa52;
-  border: 1px solid #13aa52;
+  border: 2px solid #13aa52;
   width: 33vw;
   height: 6vh;
   border-radius: 4px;
@@ -258,7 +262,26 @@ z-index: 0;
   outline: 0;
   text-align: center;
   transform: translateY(0);
-  transition: transform 150ms, box-shadow 150ms;
+  transition: transform 200ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  z-index: 1;
+}
+
+.button-dart-none{
+  background-color: #13aa52;
+  border: 2px solid #13aa52;
+  width: 33vw;
+  height: 6vh;
+  content: none;
+  border-radius: 4px;
+  font-size: 3vh;
+  font-weight: 400;
+  outline: none;
+  outline: 0;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 200ms, box-shadow 150ms;
   user-select: none;
   -webkit-user-select: none;
   z-index: 1;
@@ -268,7 +291,7 @@ z-index: 0;
 .dart-sum {
   background-color: #13aa52;
   width: 99vw;
-  height: 10vh;
+  height: 6vh;
   border-radius: 4px;
   font-weight: 400;
   outline: none;
@@ -334,9 +357,14 @@ button:hover {
   pointer-events: none;
 }
 
+.smally {
+font-size: small;
+color: green;
+}
+
 .active {
   font-size: 5vh;
-  color: green;
+  color: #13aa52;
 }
 
 .not-active {
@@ -416,3 +444,19 @@ h1 {
   border-image: linear-gradient(to right, white, #13aa52);
   border-image-slice: 1;
 }
+
+.table-dark {
+  width: 100%;
+  color: #fff;
+text-align: center;}
+  .table-dark th,
+  .table-dark td,
+  .table-dark thead th {
+    border-color: #454d55; }
+  .table-dark.table-bordered {
+    border: 0; }
+  .table-dark.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(255, 255, 255, 0.05); }
+  .table-dark.table-hover tbody tr:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.075); }

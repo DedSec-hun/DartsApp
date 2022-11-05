@@ -924,7 +924,7 @@ const startGame = () => {
   console.log("START");
 props.setp1name(p1+ ' ' +emojip1);
 props.setp2name(p2+ ' ' +emojip2);
-props.sethiddenplayers('hidden')
+props.sethiddenplayers('none')
 }
  
   const handleChange1 = event => {
@@ -941,9 +941,9 @@ props.sethiddenplayers('hidden')
   <h2>RETEK DARTS APP</h2>
 <img className="dart-img-main" src={dart} alt="" />
   
-<div class="form__group field">
+<div className="form__group field">
 <input
- class="form__field"
+ className="form__field"
         type="text"
         id="message"
         name="message"
@@ -951,11 +951,11 @@ props.sethiddenplayers('hidden')
         placeholder={p1}
         value={p1}
       />
-  <label for="name" class="form__label">Név</label>
+  <label className="form__label">Név</label>
 </div>
-<div class="form__group field">
+<div className="form__group field">
 <input
- class="form__field"
+ className="form__field"
         type="text"
         id="message"
         name="message"
@@ -963,7 +963,7 @@ props.sethiddenplayers('hidden')
         placeholder={p2}
         value={p2}
       />
-  <label for="name" class="form__label">Név</label>
+  <label className="form__label">Név</label>
 </div>
 
 <button className='button-dart' onClick={startGame} >START</button>
