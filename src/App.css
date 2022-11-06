@@ -23,6 +23,13 @@
   }
 }
 
+.winner{
+  background-color: #13aa52;
+  color: black;
+  font-size: 6vh;
+  text-align: center;
+}
+
 .board-holder {
 position: relative;
 height: 100vw;
@@ -207,40 +214,43 @@ z-index: 0;
 }
 
 .header {
+  overflow-y: hidden;
   width: 100%;
-  max-height: 25vh;
+  min-height: 24vh;
  display: inline-flex;
 }
 
-.p1 {
-  width: 50%;
+.name {
+  text-align: center;
+  width: 40%;
 }
 
-.p2{
-  width: 50%;
+.turn_holder {
+width: 10%;
 }
-
-.p2float{
-  float: right;
-}
+.turn {
+  background-color: #13aa52;
+  position: absolute;
+  height: 5vh;
+  width: 10vw;
+  border-top: 13px solid #13aa52;
+  transform: translateY(-13px);
+  text-align:center;
+  font-size: xx-large;
+  border-radius: 0 0 50% 50%;
+  }
 
 .button-normal {
   width: 100%;
-  margin-left: 10px;
   background-color: #13aa52;
   border: 1px solid #13aa52;
-  border-radius: 4px;
-  box-shadow: rgba(10, 0, 0, 0) 10px 10px 10px 10px;
-  box-sizing: border-box;
+  border-radius: 9px;
   color: black;
   cursor: pointer;
   font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 10px;
-  outline: none;
-  outline: 0;
-  padding: 5px 15px;
+  font-size: 1vh;
+  padding: 10px 10px 10px 10px;
   text-align: center;
-  transform: translateY(0);
   transition: transform 150ms, box-shadow 150ms;
   user-select: none;
   -webkit-user-select: none;
@@ -275,8 +285,7 @@ z-index: 0;
   outline: none;
   outline: 0;
   text-align: center;
-  transform: translateY(0);
-  transition: transform 200ms, box-shadow 150ms;
+  transition: transform 200ms;
   user-select: none;
   -webkit-user-select: none;
   z-index: 1;
@@ -321,8 +330,8 @@ z-index: 0;
 }
 
 .multiplier-fullscreen {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
@@ -346,9 +355,9 @@ z-index: 0;
 
 .multiplier-counter {
   background-color: red;
-  height: 20px;
+  height: 10px;
   width: 0px;
-  position: absolute;
+  position: relative;
   border: none;
   top: 0;
   left: 0;
@@ -376,20 +385,10 @@ font-size: medium;
 color: green;
 }
 
-.turn {
-background-color: #13aa52;
-position: absolute;
-top: 0;
-left: 45vw;
-width: 10vw;
-height: 5vh;
-text-align:center;
-font-size: xx-large;
-border-radius: 0 0 50% 50%;
-}
+
 
 .active {
-  font-size: 6vh;
+  font-size: 4vh;
   color: #13aa52;
 }
 
