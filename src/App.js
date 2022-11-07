@@ -35,6 +35,8 @@ function App() {
 
   let slices = [ 1, 18, 4, 13, 6, 10, 15, 2, 17, 3, 19, 7, 16, 8, 11, 14, 9, 12, 5, 20];
 
+
+
   const endTurn = () => {
     if (turn % 2 === 0) {
       if(p1 - turnSum === 0) {
@@ -44,10 +46,7 @@ function App() {
         return;
       }
       if(p1 - turnSum < 0) {
-        setTurn(turn + 1);
-        set1zero();
-        set2zero();
-        set3zero();
+        addTurn();
         return;
         }
         setP1(p1 - turnSum); 
@@ -61,22 +60,22 @@ function App() {
       return;
     }
     if(p2 - turnSum < 0) {
-      setTurn(turn + 1);
-      set1zero();
-      set2zero();
-      set3zero();
+      addTurn();
       return;
     }
       setP2(p2 - turnSum); 
       setRoundsP2(roundsP2 => [...roundsP2,turnSum]);
       
      }
-     setTurn(turn + 1);
+     addTurn();
+  };
+
+function addTurn() {
+  setTurn(turn + 1);
      set1zero();
      set2zero();
      set3zero();
-    navigator.vibrate(100);
-  };
+}
 
   const EndGame = (winner) => {
     setwinner(winner);
@@ -130,7 +129,8 @@ hitCounter(hitvalue,1);
       clearInterval(intervalRef.current);
       intervalRef.current = null;
       if (counter > 100) {
-        multiplier(event.target.id);
+        setDartX(event.target.id);
+        setHidden("block");
       }
       setCounter(0);
     }
@@ -139,10 +139,6 @@ hitCounter(hitvalue,1);
     hitCounter(value,1);
     setHiddenBull("none");
   };
-  function multiplier(value) {
-    setDartX(value);
-    setHidden("block");
-  }
 
   const multiplierX = (multiplier) => {
     setHidden("none");
@@ -171,17 +167,8 @@ hitCounter(hitvalue,1);
 
   useEffect(() => {
     setTurnSum(dart1 + dart2 + dart3);
-    navigator.vibrate(50);
+    navigator.vibrate(35);
   }, [dart1, dart2, dart3]);
-
-useEffect(() => {
-  if (counter > 100) {
-    navigator.vibrate(10);
-  }
-}, [counter])
-
-
-
 
   return (
     <div className="Appview">
