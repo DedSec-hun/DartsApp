@@ -135,11 +135,13 @@ hitCounter(hitvalue,1);
       setCounter(0);
     }
   };
-
-  function multiplier(dart) {
-    setDartX(dart);
+  const bullCount = (value) => {
+    hitCounter(value,1);
+    setHiddenBull("none");
+  };
+  function multiplier(value) {
+    setDartX(value);
     setHidden("block");
-    console.log(dart);
   }
 
   const multiplierX = (multiplier) => {
@@ -174,15 +176,12 @@ hitCounter(hitvalue,1);
 
 useEffect(() => {
   if (counter > 100) {
-    window.vibrate(10);
+    navigator.vibrate(10);
   }
 }, [counter])
 
 
-  const bullCount = (value) => {
-    hitCounter(value,1);
-    setHiddenBull("none");
-  };
+
 
   return (
     <div className="Appview">
