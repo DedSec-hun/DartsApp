@@ -204,7 +204,7 @@
 .header {
   overflow-y: hidden;
   width: 100%;
-  min-height: 17vh;
+  min-height: 13vh;
   display: inline-flex;
 }
 
