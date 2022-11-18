@@ -23,7 +23,7 @@
   }
 }
 
-.winner{
+.winner {
   background-color: #13aa52;
   color: black;
   font-size: 6vh;
@@ -31,8 +31,8 @@
 }
 
 .board-holder {
-position: relative;
-height: 100vw;
+  position: relative;
+  height: 100vw;
 }
 
 .board {
@@ -48,11 +48,11 @@ height: 100vw;
   z-index: 1;
 }
 .dartboard-img {
-position: absolute;
-padding: 0;
-width: 100vw;
-height: 100vw;
-z-index: 0;
+  position: absolute;
+  padding: 0;
+  width: 100vw;
+  height: 100vw;
+  z-index: 0;
 }
 
 .bull {
@@ -204,8 +204,8 @@ z-index: 0;
 .header {
   overflow-y: hidden;
   width: 100%;
-  min-height: 20vh;
- display: inline-flex;
+  min-height: 17vh;
+  display: inline-flex;
 }
 
 .name {
@@ -214,19 +214,19 @@ z-index: 0;
 }
 
 .turn_holder {
-width: 10%;
+  width: 10%;
 }
 .turn {
   background-color: #13aa52;
   position: absolute;
-  height: 5vh;
+  height: 8vh;
   width: 10vw;
   border-top: 13px solid #13aa52;
   transform: translateY(-13px);
-  text-align:center;
+  text-align: center;
   font-size: xx-large;
   border-radius: 0 0 50% 50%;
-  }
+}
 
 .button-normal {
   width: 100%;
@@ -235,7 +235,8 @@ width: 10%;
   border-radius: 9px;
   color: black;
   cursor: pointer;
-  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont,
+    sans-serif;
   font-size: 1vh;
   padding: 10px 10px 10px 10px;
   text-align: center;
@@ -279,7 +280,7 @@ width: 10%;
   z-index: 1;
 }
 
-.button-dart-none{
+.button-dart-none {
   background-color: #13aa52;
   border: 2px solid #13aa52;
   width: 33vw;
@@ -297,7 +298,6 @@ width: 10%;
   -webkit-user-select: none;
   z-index: 1;
 }
-
 
 .dart-sum {
   background-color: #13aa52;
@@ -353,7 +353,7 @@ width: 10%;
 }
 
 button:hover {
-  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  box-shadow: rgba(0, 0, 0, 0.15) 0 3px 9px 0;
   transform: translateY(-2px);
 }
 
@@ -369,11 +369,9 @@ button:hover {
 }
 
 .smally {
-font-size: medium;
-color: green;
+  font-size: medium;
+  color: green;
 }
-
-
 
 .active {
   font-size: 4vh;
@@ -426,7 +424,7 @@ h1 {
   color: transparent;
 }
 
-.form__field::placeholder-shown~.form__label {
+.form__field::placeholder-shown ~ .form__label {
   font-size: 1.3rem;
   cursor: text;
   top: 20px;
@@ -462,15 +460,20 @@ h1 {
 .table-dark {
   width: 100%;
   color: #fff;
-text-align: center;}
-  .table-dark th,
-  .table-dark td,
-  .table-dark thead th {
-    border-color: #454d55; }
-  .table-dark.table-bordered {
-    border: 0; }
-  .table-dark.table-striped tbody tr:nth-of-type(odd) {
-    background-color: rgba(255, 255, 255, 0.05); }
-  .table-dark.table-hover tbody tr:hover {
-    color: #fff;
-    background-color: rgba(255, 255, 255, 0.075); }
+  text-align: center;
+}
+.table-dark th,
+.table-dark td,
+.table-dark thead th {
+  border-color: #454d55;
+}
+.table-dark.table-bordered {
+  border: 0;
+}
+.table-dark.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+.table-dark.table-hover tbody tr:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.075);
+}

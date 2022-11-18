@@ -31,6 +31,11 @@ const Score = (props) => {
   <td>{ props.scorehistoryp1.length > 0 ?  Math.floor(props.scorehistoryp1.reduce((a,v) =>  a = a + v) / props.scorehistoryp1.length): '' }</td>
   <td>{ props.scorehistoryp2.length > 0 ? Math.floor(props.scorehistoryp2.reduce((a,v) =>  a = a + v ) / props.scorehistoryp2.length): '' }</td>
 </tr>
+<tr>
+  <td>Átlag dart:</td>
+  <td>{ props.scorehistoryp1.length > 0 ?  Math.floor(props.scorehistoryp1.reduce((a,v) =>  a = a + v) / props.scorehistoryp1.length / 3): '' }</td>
+  <td>{ props.scorehistoryp2.length > 0 ? Math.floor(props.scorehistoryp2.reduce((a,v) =>  a = a + v ) / props.scorehistoryp2.length / 3): '' }</td>
+</tr>
 </table> 
 
 {

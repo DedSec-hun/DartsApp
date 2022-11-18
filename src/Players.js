@@ -1,5 +1,4 @@
 import './App.css';
-
 import dart from "./dart.png";
 import { useState } from 'react';
 const Players = (props) => {
