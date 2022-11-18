@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/DartsApp/static/css/main.5baaa939.css",
-    "main.js": "/DartsApp/static/js/main.9aa27024.js",
+    "main.css": "/DartsApp/static/css/main.9757d18b.css",
+    "main.js": "/DartsApp/static/js/main.4a96bf1d.js",
     "static/js/787.8812c231.chunk.js": "/DartsApp/static/js/787.8812c231.chunk.js",
     "static/media/dartboard.png": "/DartsApp/static/media/dartboard.bd255ae12e7843ec5a9d.png",
     "index.html": "/DartsApp/index.html",
-    "main.5baaa939.css.map": "/DartsApp/static/css/main.5baaa939.css.map",
-    "main.9aa27024.js.map": "/DartsApp/static/js/main.9aa27024.js.map",
+    "main.9757d18b.css.map": "/DartsApp/static/css/main.9757d18b.css.map",
+    "main.4a96bf1d.js.map": "/DartsApp/static/js/main.4a96bf1d.js.map",
     "787.8812c231.chunk.js.map": "/DartsApp/static/js/787.8812c231.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5baaa939.css",
-    "static/js/main.9aa27024.js"
+    "static/css/main.9757d18b.css",
+    "static/js/main.4a96bf1d.js"
   ]
 }
